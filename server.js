@@ -11,9 +11,9 @@ app.post('/git', (req, res) => {
   if (req.headers['x-github-event'] === 'push' &&
     crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(req.headers['x-hub-signature']))) {
     res.sendStatus(200);
-    const commands = ['git fetch master',
-                      'git reset --hard master',
-                      'git pull master --force',
+    const commands = ['git fetch RealEnzoTDZ/Moff-Bot',
+                      'git reset --hard RealEnzoTDZ/Moff-Bot',
+                      'git pull RealEnzoTDZ/Moff-Bot --force',
                       'npm install',
                       // your build commands here
                       'refresh']; // fixes glitch ui
