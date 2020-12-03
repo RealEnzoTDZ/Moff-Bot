@@ -11,7 +11,7 @@ app.post('/git', (req, res) => {
   if (req.headers['x-github-event'] === 'push' &&
     crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(req.headers['x-hub-signature']))) {
     res.sendStatus(200);
-    const commands = ['git fetch --all --prune origin master',
+    const commands = ['git fetch --prune origin master',
                       'git reset --hard master',
                       'npm install',
                       // your build commands here
