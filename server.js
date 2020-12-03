@@ -12,7 +12,7 @@ app.post('/git', (req, res) => {
     crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(req.headers['x-hub-signature']))) {
     res.sendStatus(200);
     const commands = ['git fetch --prune origin master',
-                      'git reset --hard master',
+                      'git reset --hard origin master',
                       'npm install',
                       // your build commands here
                       'refresh']; // fixes glitch ui
